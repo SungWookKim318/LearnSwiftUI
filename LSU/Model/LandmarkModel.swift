@@ -9,13 +9,15 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-public struct LandmarkModel: Hashable, Codable {
+public struct LandmarkModel: Hashable, Codable, Identifiable {
     // MARK: Public
 
     public struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
     }
+
+    public var id: Int
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
@@ -27,7 +29,6 @@ public struct LandmarkModel: Hashable, Codable {
 
     // MARK: Internal
 
-    var id: Int
     var name: String
     var park: String
     var state: String
