@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+final class ModelData: ObservableObject {
+    @Published var landmarks: [LandmarkModel] = load(bundleJsonFile: "landmarkData.json")
+}
 
 // MARK: - ErrorOfLoading
 
@@ -14,8 +19,6 @@ enum ErrorOfLoading: Error {
     case rejectOpen
     case failDeserialize
 }
-
-var landmarks: [LandmarkModel] = load(bundleJsonFile: "landmarkData.json")
 
 func loadWithThrows<T: Decodable>(bundleJsonFile filename: String) throws -> T {
     guard let fileURL = Bundle.main.url(forResource: filename, withExtension: nil) else { throw ErrorOfLoading.notFindFile
