@@ -33,6 +33,7 @@ public struct LandmarkModel: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var description: String
+    var isFavorite: Bool
 
     var image: Image {
         Image(imageName)
