@@ -14,7 +14,7 @@ struct LandmarkList: View {
 
     var filteredLandmarks: [LandmarkModel] {
         modelData.landmarks.filter { landmark in
-            !showFavoritesOnly || landmark.isFavorite
+            (!showFavoritesOnly || landmark.isFavorite)
         }
     }
 
@@ -46,5 +46,6 @@ struct LandmarkList: View {
 struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
         LandmarkList()
+            .environmentObject(ModelData())
     }
 }
