@@ -13,6 +13,7 @@ import Foundation
 final class ModelData: ObservableObject {
     @Published var landmarks: [LandmarkModel] = load(bundleJsonFile: "landmarkData.json")
     var hikes: [HikeModel] = load(bundleJsonFile: "hikeData.json")
+    @Published var profile = Profile.default
 
     var categories: [String: [LandmarkModel]] {
         Dictionary(grouping: landmarks, by: { $0.category.rawValue })
