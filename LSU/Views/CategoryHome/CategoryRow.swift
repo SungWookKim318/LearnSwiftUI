@@ -12,7 +12,7 @@ struct CategoryRow: View {
     var items: [LandmarkModel]
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(categoryName)
                 .font(.headline)
                 .padding(.leading, 15)
@@ -30,7 +30,7 @@ struct CategoryRow: View {
                 }
             }
         }
-        .padding(.leading, 15)
+        .frame(height: 185)
     }
 }
 
