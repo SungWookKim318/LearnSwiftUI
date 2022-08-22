@@ -29,11 +29,19 @@ public struct LandmarkModel: Hashable, Codable, Identifiable {
 
     // MARK: Internal
 
+    enum Category: String, CaseIterable, Codable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
+
     var name: String
     var park: String
     var state: String
     var description: String
     var isFavorite: Bool
+    var isFeatured: Bool
+    var category: Category
 
     var image: Image {
         Image(imageName)

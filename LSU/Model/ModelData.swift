@@ -5,12 +5,24 @@
 //  Created by 김성욱 on 2022/08/19.
 //
 
-import Foundation
 import Combine
+import Foundation
+
+// MARK: - ModelData
 
 final class ModelData: ObservableObject {
     @Published var landmarks: [LandmarkModel] = load(bundleJsonFile: "landmarkData.json")
     var hikes: [HikeModel] = load(bundleJsonFile: "hikeData.json")
+
+    var categories: [String: [LandmarkModel]] {
+        Dictionary(grouping: landmarks, by: { $0.category.rawValue })
+    }
+    
+    var features: [LandmarkModel] {
+        landmarks.filter {
+            $0.isFeatured
+        }
+    }
 }
 
 // MARK: - ErrorOfLoading
