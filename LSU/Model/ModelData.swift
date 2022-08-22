@@ -10,6 +10,7 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var landmarks: [LandmarkModel] = load(bundleJsonFile: "landmarkData.json")
+    var hikes: [HikeModel] = load(bundleJsonFile: "hikeData.json")
 }
 
 // MARK: - ErrorOfLoading
