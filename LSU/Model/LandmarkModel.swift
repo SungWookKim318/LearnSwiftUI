@@ -42,9 +42,12 @@ public struct LandmarkModel: Hashable, Codable, Identifiable {
     var isFavorite: Bool
     var isFeatured: Bool
     var category: Category
-
+    
     var image: Image {
         Image(imageName)
+    }
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
     }
 
     var locationCoordinate: CLLocationCoordinate2D {
