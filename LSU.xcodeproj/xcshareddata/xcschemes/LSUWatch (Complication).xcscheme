@@ -55,8 +55,10 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "32">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/LSUWatch">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "71B9871A28B73F3C00984028"
@@ -64,7 +66,7 @@
             BlueprintName = "LSUWatch"
             ReferencedContainer = "container:LSU.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -73,8 +75,10 @@
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "32">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/LSUWatch">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "71B9871A28B73F3C00984028"
@@ -82,7 +86,16 @@
             BlueprintName = "LSUWatch"
             ReferencedContainer = "container:LSU.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "71B9871A28B73F3C00984028"
+            BuildableName = "LSUWatch.app"
+            BlueprintName = "LSUWatch"
+            ReferencedContainer = "container:LSU.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
