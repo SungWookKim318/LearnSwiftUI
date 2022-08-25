@@ -10,14 +10,35 @@ import MapKit
 
 struct MapView: View {
     var coordinate: CLLocationCoordinate2D
-    @State private var region = MKCoordinateRegion()
-    
-    var body: some View {
-        Map(coordinateRegion: $region)
+    var region: MKCoordinateRegion {
+        MKCoordinateRegion(
+            center: coordinate,
+            span: MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta))
     }
     
-    private func setRegion(coordinate: CLLocationCoordinate2D) {
-        region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2))
+    enum Zoom: String, CaseIterable, Identifiable {
+        case near = "Near"
+        case medium = "Medium"
+        case far = "Far"
+        
+        var id: Zoom {
+            return self
+        }
+    }
+    
+    var delta: CLLocationDegrees {
+        switch zoom {
+        case .near: return 0.02
+        case .medium: return 0.2
+        case .far: return 2
+        }
+    }
+    
+    @AppStorage("MapView.Zoom")
+    private var zoom: Zoom = .medium
+    
+    var body: some View {
+        Map(coordinateRegion: .constant(region))
     }
 }
 
